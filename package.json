@@ -1,0 +1,33 @@
+{
+  "name": "dean",
+  "version": "0.0.1",
+  "description": "A Functional UI component library in React",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "@storybook/react": "^3.3.3",
+    "@storybook/addon-actions": "^3.3.3",
+    "@storybook/addon-links": "^3.3.3"
+  },
+  "scripts": {
+    "start": "babel src -d dist",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syahn/dean.git"
+  },
+  "author": "frank ahn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/syahn/dean/issues"
+  },
+  "homepage": "https://github.com/syahn/dean#readme"
+}
