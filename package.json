@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "A Functional UI component library in React",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "styled-components": "^2.4.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",

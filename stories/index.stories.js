@@ -1,13 +1,14 @@
-import React from 'react';
+import React from 'react'
+import Dean from '../src/index'
 
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
+import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+import { linkTo } from '@storybook/addon-links'
 
-import { Button, Welcome } from '@storybook/react/demo';
+const { Button, Card, ICard } = Dean
 
-storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
+storiesOf('Button', module).add('default', () => <Button>Default</Button>)
+storiesOf('Card', module).add('default', () => <Card>Default</Card>)
+storiesOf('ICard', module).add('default', () => <ICard>Default</ICard>)
 
 storiesOf('Button', module)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
-  .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>);
