@@ -4,6 +4,7 @@
   "description": "A Functional UI component library in React",
   "main": "index.js",
   "dependencies": {
+    "open-color": "^1.6.2",
     "styled-components": "^2.4.0"
   },
   "devDependencies": {

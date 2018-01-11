@@ -16,7 +16,6 @@ const createComponent = (config, components) => {
   if (!type || !props || !style) return null
 
   const component = hoc(style, props)(type)
-  console.log('component', component);
 
   return component
 }
