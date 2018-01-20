@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Popup = styled.div`
-    display: ${props => props.visibility ? "none" : "inherit"};
+    display: ${props => props.visibility === "hidden" ? "none" : "inherit"};
     border-radius: 3px;
     width: 250px;
     padding: 20px;

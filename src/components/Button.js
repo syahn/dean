@@ -26,6 +26,18 @@ export const Button = styled.button`
     }
 `;
 
+const CloseButton = styled.button`
+    border: none;
+    position: absolute;
+    cursor: pointer;
+    top: 3px;
+    right: 1px;
+
+    &:focus {
+        outline: 0;
+    }
+`;
+
 export class EmailButton extends Component {
     constructor(props) {
         super(props);
@@ -37,25 +49,59 @@ export class EmailButton extends Component {
 
     clickHandler() {
         console.log("clicked");
-        this.setState(({ visibility }) => ({ visibility: !visibility }));
+        this.setState(({ visibility }) => ({
+            visibility: visibility === "hidden" ? "visible" : "hidden"
+        }));
     }
 
     render() {
         return (
             <div>
-                <Button onClick={this.clickHandler}>
+                <EmailIconButton
+                    onClick={this.clickHandler}
+                    onMouseover={this.clickHandler}
+                >
                     <img src={emailImg} alt="email icon" />
-                </Button>
-                <Popup visibility={this.state.visibility}>
+                </EmailIconButton>
+                <EmailPopup visibility={this.state.visibility}>
                     <span>frankahn9@gmail.com</span>
                     <CopyButton>copy</CopyButton>
-                </Popup>
+                    <CloseButton onClick={this.clickHandler}>X</CloseButton>
+                </EmailPopup>
             </div>
         );
     }
 }
 
+const EmailIconButton = styled.button`
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+
+    &:focus {
+        outline: 0;
+    }
+`;
+
+const EmailPopup = Popup.extend`
+    position: relative;
+    width: 215px;
+    top: 5px;
+    padding: 0px 18px;
+
+    span {
+        display: inline-block;
+        position: relative;
+        top: 1px;
+    }
+`;
+
 export const CopyButton = () => {
+    const ButtonEl = Button.extend`
+        margin: 8px;
+        padding: 4px 8px 7px;
+    `;
+
     const copyToClipboard = () => {
         const text = document.createElement("textarea");
         text.innerText = "frankahn9@gmail.com";
@@ -65,5 +111,16 @@ export const CopyButton = () => {
         text.remove();
     };
 
-    return <Button onClick={copyToClipboard}>copy</Button>;
+    return <ButtonEl onClick={copyToClipboard}>copy</ButtonEl>;
 };
+
+// export const Popup = styled.div`
+//     display: ${props => props.visibility ? "none" : "inherit"};
+//     border-radius: 3px;
+//     width: 250px;
+//     padding: 20px;
+//     transition: 0.3s;
+//     box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.15), 0 0 0 rgba(16, 22, 26, 0),
+//         0 0 0 rgba(16, 22, 26, 0);
+//     background: #fff;
+// `;
